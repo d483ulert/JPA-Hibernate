@@ -10,7 +10,7 @@ import java.util.Date;
 @Setter
 @Entity
 @NoArgsConstructor
-public class boardDTO {
+public class BoardDTO {
 
     private int num;
     private String writer;

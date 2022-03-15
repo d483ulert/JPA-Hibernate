@@ -9,4 +9,10 @@ public class ToyprjApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ToyprjApplication.class, args);
 	}
+
+	@RequestMapping("/main")
+	public String main(){
+
+		return "Main";
+	}
 }

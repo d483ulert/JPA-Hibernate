@@ -31,7 +31,7 @@ public class BoardEntity {
                 '}';
     }
 
-    public BoardEntity(int num, String writer, String content, Date writeTime, int view) {
+    public BoardEntity(Integer num, String writer, String content, Date writeTime, int view) {
         this.num = num;
         this.writer = writer;
         this.content = content;

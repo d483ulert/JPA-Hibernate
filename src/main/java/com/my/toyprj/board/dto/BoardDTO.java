@@ -6,12 +6,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
 import java.util.Date;
 
 @Getter
 @Setter
-@Entity
 @NoArgsConstructor
 @ToString
 public class BoardDTO {

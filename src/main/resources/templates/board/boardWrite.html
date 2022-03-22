@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang=ko xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-</head>
+<head th:replace ="common/common.html ::html-head "></head>
+<div th:replace="common/common.html :: header"></div>
 <body>
 
 <form action="/board/create" method="post">
@@ -13,5 +12,6 @@
 
 
 </body>
+<footer th:replace="common/common.html :: footer"></footer>
 
 </html>

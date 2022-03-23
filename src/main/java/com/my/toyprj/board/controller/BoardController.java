@@ -1,13 +1,9 @@
 package com.my.toyprj.board.controller;
-import com.my.toyprj.ToyprjApplication;
 import com.my.toyprj.board.dto.BoardDTO;
 import com.my.toyprj.board.entity.BoardEntity;
 import com.my.toyprj.board.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -18,8 +14,7 @@ public class BoardController {
     private BoardRepository boardRepository;
 
     @GetMapping("/board/list")
-    public String BoardList(Model model){
-        System.out.println("ss");
+    public String BoardList(){
         return "/board/boardList";
     }
 

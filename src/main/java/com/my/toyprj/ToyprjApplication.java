@@ -12,11 +12,11 @@ import java.util.concurrent.TimeUnit;
 @SpringBootApplication
 public class ToyprjApplication implements WebMvcConfigurer {
 
-	@Override
+/*	@Override
 	public void addResourceHandlers(final ResourceHandlerRegistry registry){
 		registry.addResourceHandler("/**").addResourceLocations("classpath:/templates/")
 		.setCacheControl(CacheControl.maxAge(10, TimeUnit.MINUTES));
-	}
+	}*/
 	public static void main(String[] args) {
 		SpringApplication.run(ToyprjApplication.class, args);
 	}

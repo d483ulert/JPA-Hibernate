@@ -6,18 +6,28 @@
 <div th:replace="common/common :: header"></div>
 
 <body>
-<table>
+<div class="container">
+<table class="table table-hover">
+    <th>번호</th>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>작성일</th>
+    <th>조회수</th>
+    <th>좋아요</th>
     <tr>
-        <td> 윤종신 </td>
-        <td> 몬스터 </td>
+        <td>1</td>
+        <td>가즈아</td>
+        <td>김지성</td>
+        <td>2022-03-27</td>
+        <td>0</td>
+        <td>0</td>
     </tr>
-    <tr>
-        <td> 윤종신 </td>
-        <td> 모처럼 </td>
-
-    </tr>
-
 </table>
+
+    <div class="float-end">
+        <a class="btn btn-light" href="#" role="button">글쓰기</a>
+    </div>
+</div>
 
 </body>
 <footer th:replace="common/common :: footer"></footer>

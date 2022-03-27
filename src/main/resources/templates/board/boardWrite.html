@@ -4,11 +4,22 @@
 <div th:replace="common/common.html :: header"></div>
 <body>
 
-<form action="/board/create" method="post">
-    <input name="title" type="text">
-    <textarea name="content"></textarea>
-    <button type="submit">제출</button>
+<div class="container">
+<form th:action="@{board/create}" th:object="${boardDTO}" method="post">
+    <div class="mb-3">
+        <label for="title" class="form-label">제목</label>
+        <input type="title" class="form-control" id="title" th:field="*{title}">
+    </div>
+    <div class="mb-3">
+        <label for="title" class="form-label">내용</label>
+        <textarea class="form-control" id="content" rows="3" th:feild="*{content}"></textarea>
+    </div>
+
+    <div class="float-end">
+        <button type="submit" class="btn btn-Light">제출</button>
+    </div>
 </form>
+</div>
 
 
 </body>

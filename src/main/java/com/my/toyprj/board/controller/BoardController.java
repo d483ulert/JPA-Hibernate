@@ -38,6 +38,8 @@ public class BoardController {
 
         BoardEntity entity = boardDTO.toEntity();
 
+        System.out.println("brdentt"+entity);
+
         BoardEntity saved = boardRepository.save(entity);
     }
 

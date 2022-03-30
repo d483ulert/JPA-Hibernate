@@ -20,23 +20,25 @@ public class BoardEntity {
     private Date writeTime;
     @Column
     private int view;
-    @Override
-    public String toString() {
-        return "BoardEntity{" +
-                "num=" + num +
-                ", writer='" + writer + '\'' +
-                ", content='" + content + '\'' +
-                ", writeTime=" + writeTime +
-                ", view=" + view +
-                '}';
-    }
+    @Column
+    private String title;
 
-    public BoardEntity(Integer num, String writer, String content, Date writeTime, int view) {
+    public BoardEntity(int num, String writer, String content, Date writeTime, int view, String title) {
         this.num = num;
         this.writer = writer;
         this.content = content;
         this.writeTime = writeTime;
         this.view = view;
+        this.title = title;
+    }
+
+    public BoardEntity(Integer num, String writer, String content, Date writeTime, int view, String title) {
+        this.num = num;
+        this.writer = writer;
+        this.content = content;
+        this.writeTime = writeTime;
+        this.view = view;
+        this.title= title;
     }
 
 

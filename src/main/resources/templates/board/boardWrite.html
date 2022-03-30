@@ -5,14 +5,14 @@
 <body>
 
 <div class="container">
-<form th:action="@{board/create}" th:object="${boardDTO}" method="post">
+<form th:action="@{/board/create}" th:object="${boardDTO}" method="post">
     <div class="mb-3">
         <label for="title" class="form-label">제목</label>
-        <input type="title" class="form-control" id="title" th:field="*{title}">
+        <input type="title" class="form-control" id="title" th:field="${boardDTO.title}">
     </div>
     <div class="mb-3">
         <label for="title" class="form-label">내용</label>
-        <textarea class="form-control" id="content" rows="3" th:feild="*{content}"></textarea>
+        <textarea class="form-control" id="content" rows="3" th:feild="${boardDTO.content}"></textarea>
     </div>
 
     <div class="float-end">

@@ -6,33 +6,35 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
 @Controller
+@RequestMapping("/board")
 public class BoardController {
     @Autowired
     private BoardRepository boardRepository;
 
-    @GetMapping("/board/list")
+    @GetMapping("/list")
     public String BoardList(){
-        return "/board/boardList";
+        return "board/boardList";
     }
 
 
-    @GetMapping("/board/read")
+    @GetMapping("/read")
     public String BoardRead(){
 
-        return "/board/boardRead";
+        return "board/boardRead";
     }
 
 
-    @GetMapping("/board/write")
+    @GetMapping("/write")
     public String BoardWrite(){
 
-        return "/board/boardWrite";
+        return "board/boardWrite";
     }
 
-    @PostMapping("/board/create")
+    @PostMapping("/create")
     public void CreateBoard(BoardDTO boardDTO){
         System.out.println("boardDTO"+boardDTO.toString());
 

@@ -19,10 +19,12 @@ public class BoardDTO {
     private String content;
     private Date writeTime;
     private int view;
+    private String title;
 
-    public BoardEntity toEntity() {
-
-        return new BoardEntity(null,writer,content,writeTime,view);
+    public BoardEntity toEntity(){
+        return new BoardEntity(null,writer,content,writeTime,view,title);
     }
+
+
 
 }

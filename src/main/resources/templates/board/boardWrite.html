@@ -3,20 +3,31 @@
 <head th:replace ="common/common.html ::html-head "></head>
 <div th:replace="common/common.html :: header"></div>
 <body>
+<script th:inline="javascript">
+    $(document).ready(function(){
+
+        var formObj = $("#formObj");
+
+       $("#btn_add").on("click",function(){
+            formObj.submit();
+       });
+
+    });
+</script>
 
 <div class="container">
-<form th:action="@{/board/create}" th:object="${boardDTO}" method="post">
+<form action="#" id="formObj" th:action="@{/board/create}" th:object="${boardDTO}" method="post">
     <div class="mb-3">
         <label for="title" class="form-label">제목</label>
-        <input type="title" class="form-control" id="title" th:field="${boardDTO.title}">
+        <input type="title" id="title" th:field="*{title}"/>
     </div>
     <div class="mb-3">
         <label for="title" class="form-label">내용</label>
-        <textarea class="form-control" id="content" rows="3" th:feild="${boardDTO.content}"></textarea>
+        <textarea id="content" rows="3" th:feild="*{content}"></textarea>
     </div>
 
     <div class="float-end">
-        <button type="submit" class="btn btn-Light">제출</button>
+        <button type="submit" id="btn_add" class="btn btn-Light">제출</button>
     </div>
 </form>
 </div>

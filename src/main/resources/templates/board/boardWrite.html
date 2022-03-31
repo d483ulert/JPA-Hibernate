@@ -3,17 +3,6 @@
 <head th:replace ="common/common.html ::html-head "></head>
 <div th:replace="common/common.html :: header"></div>
 <body>
-<script th:inline="javascript">
-    $(document).ready(function(){
-
-        var formObj = $("#formObj");
-
-       $("#btn_add").on("click",function(){
-            formObj.submit();
-       });
-
-    });
-</script>
 
 <div class="container">
 <form action="#" id="formObj" th:action="@{/board/create}" th:object="${boardDTO}" method="post">
@@ -26,14 +15,31 @@
         <textarea id="content" rows="3" th:feild="*{content}"></textarea>
     </div>
 
+</form>
     <div class="float-end">
         <button type="submit" id="btn_add" class="btn btn-Light">제출</button>
+        <button type="button" id="btn_list" class="btn btn-Light" onclick="cmdList()">목록</button>
     </div>
-</form>
 </div>
 
 
 </body>
 <footer th:replace="common/common.html :: footer"></footer>
+
+
+
+<script th:inline="javascript">
+    $(document).ready(function(){
+       var formObj = $("#formObj");
+
+       $("#btn_add").on("click",function(){
+            formObj.submit();
+       });
+
+    });
+    function cmdList(){
+        location.href="/board/list";
+    };
+</script>
 
 </html>

@@ -33,7 +33,7 @@ public class BoardController {
     }
 
     @PostMapping("/create")
-    public void CreateBoard(@RequestBody  BoardDTO boardDTO){
+    public String CreateBoard(BoardDTO boardDTO){
         System.out.println("boardDTO"+boardDTO.toString());
 
         BoardEntity entity = boardDTO.toEntity();
@@ -41,6 +41,8 @@ public class BoardController {
         System.out.println("brdentt"+entity);
 
         BoardEntity saved = boardRepository.save(entity);
+
+        return "redirect:board/list";
     }
 
 }

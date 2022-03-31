@@ -2,18 +2,17 @@ package com.my.toyprj.board.controller;
 import com.my.toyprj.board.dto.BoardDTO;
 import com.my.toyprj.board.entity.BoardEntity;
 import com.my.toyprj.board.repository.BoardRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/board")
 public class BoardController {
-    @Autowired
-    private BoardRepository boardRepository;
+    private final BoardRepository boardRepository;
 
     @GetMapping("/list")
     public String BoardList(){
@@ -22,20 +21,19 @@ public class BoardController {
 
 
     @GetMapping("/read")
-    public String BoardRead(){
+    public String BoardRead(BoardDTO boardDTO){
 
         return "board/boardRead";
     }
 
 
     @GetMapping("/write")
-    public String BoardWrite(){
-
+    public String BoardWrite(BoardDTO boardDTO ){
         return "board/boardWrite";
     }
 
     @PostMapping("/create")
-    public void CreateBoard(BoardDTO boardDTO){
+    public void CreateBoard(@RequestBody  BoardDTO boardDTO){
         System.out.println("boardDTO"+boardDTO.toString());
 
         BoardEntity entity = boardDTO.toEntity();

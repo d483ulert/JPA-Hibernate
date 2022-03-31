@@ -1,4 +1,8 @@
 package com.my.toyprj.board.entity;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,6 +10,8 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
+@Getter
+@NoArgsConstructor
 public class BoardEntity {
 
     @Column
@@ -23,15 +29,8 @@ public class BoardEntity {
     @Column
     private String title;
 
-    public BoardEntity(int num, String writer, String content, Date writeTime, int view, String title) {
-        this.num = num;
-        this.writer = writer;
-        this.content = content;
-        this.writeTime = writeTime;
-        this.view = view;
-        this.title = title;
-    }
 
+    @Builder
     public BoardEntity(Integer num, String writer, String content, Date writeTime, int view, String title) {
         this.num = num;
         this.writer = writer;

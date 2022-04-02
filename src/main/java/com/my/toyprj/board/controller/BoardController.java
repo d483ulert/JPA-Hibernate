@@ -4,7 +4,6 @@ import com.my.toyprj.board.entity.BoardEntity;
 import com.my.toyprj.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -34,6 +33,7 @@ public class BoardController {
 
     @PostMapping("/write")
     public String CreateBoard(BoardDTO boardDTO){
+        System.out.println(boardDTO);
         BoardEntity entity = boardDTO.toEntity();
         BoardEntity saved = boardRepository.save(entity);
 

@@ -16,6 +16,6 @@ public abstract class TimeEntity {
 
     @CreatedDate
     @Column(updatable = false)
-    private LocalDateTime writeTime;
+    public LocalDateTime writeTime;
 
 }

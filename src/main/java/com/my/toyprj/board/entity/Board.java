@@ -7,11 +7,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @NoArgsConstructor
-public class BoardEntity extends TimeEntity {
+public class Board extends TimeEntity {
 
     @Id
     @GeneratedValue
@@ -30,14 +31,18 @@ public class BoardEntity extends TimeEntity {
     @Column
     private String title;
 
+    @Column
+    private int hart;
 
     @Builder
-    public BoardEntity(Integer num, String writer, String content, int view, String title) {
+    public Board(Integer num, String writer, String content, int view, String title, LocalDateTime writeTime,int hart) {
         this.num = num;
         this.writer = writer;
         this.content = content;
         this.view = view;
         this.title= title;
+        this.writeTime=writeTime;
+        this.hart=hart;
     }
 
 

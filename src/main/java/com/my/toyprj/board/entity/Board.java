@@ -1,5 +1,4 @@
 package com.my.toyprj.board.entity;
-import com.my.toyprj.base.TimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,7 +11,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Board extends TimeEntity {
+public class Board  {
 
     @Id
     @GeneratedValue
@@ -34,6 +33,10 @@ public class Board extends TimeEntity {
     @Column
     private int hart;
 
+    @Column
+    private LocalDateTime writeTime = LocalDateTime.now();
+
+
     @Builder
     public Board(Integer num, String writer, String content, int view, String title, LocalDateTime writeTime,int hart) {
         this.num = num;
@@ -41,7 +44,7 @@ public class Board extends TimeEntity {
         this.content = content;
         this.view = view;
         this.title= title;
-        this.writeTime=writeTime;
+        this.writeTime=LocalDateTime.now();
         this.hart=hart;
     }
 

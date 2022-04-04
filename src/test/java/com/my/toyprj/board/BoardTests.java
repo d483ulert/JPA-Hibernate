@@ -24,7 +24,7 @@ public class BoardTests {
                 .title("1번 게시글 제목")
                 .content("1번 게시글 내용")
                 .writer("홍길동")
-                .view(0)
+                .view(1)
                 .hart(0)
                 .build();
 

@@ -8,19 +8,22 @@
 <body>
 <div class="container">
 <table class="table table-bordered">
-    <th>번호</th>
-    <th>제목</th>
-    <th>작성자</th>
-    <th>작성일</th>
-    <th>조회수</th>
-    <th>좋아요</th>
     <tr>
-        <td th:text="${boardDTO.num}"></td>
-        <td th:text="${boardDTO.title}"></td>
-        <td th:text="${boardDTO.writer}"></td>
-        <td th:text="${#temporals.format(boardDTO.writeTime,'yyyy-mm-dd hh:mm')}"></td>
-        <td th:text="${boardDTO.view}"></td>
-        <td th:text="${boardDTO.like}"></td>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>작성일</th>
+        <th>조회수</th>
+        <th>좋아요</th>
+    </tr>
+
+    <tr th:eachg="data:${data}">
+        <td th:text="${data.num}"></td>
+        <td th:text="${data.title}"></td>
+        <td th:text="${data.writer}"></td>
+        <td th:text="${#temporals.format(data.writeTime,'yyyy-mm-dd hh:mm')}"></td>
+        <td th:text="${data.view}"></td>
+        <td th:text="${data.like}"></td>
     </tr>
 </table>
 

@@ -17,21 +17,21 @@ public class BoardDTO {
     private String content;
     private int view;
     private String title;
-    private LocalDateTime writeTime;
     private int hart;
+    private LocalDateTime writeTime;
     public Board toEntity(){
-        return new Board(null,writer,content,view,title,writeTime,hart);
+        return new Board(null,writer,content,view,title, writeTime, hart);
     }
 
     @Builder
-    public BoardDTO(int num, String writer, String content,int view,String title,LocalDateTime writeTime,int hart){
+    public BoardDTO(int num, String writer, String content,int view,String title,int hart, LocalDateTime writerTime){
         this.num= num;
         this.writer=writer;
         this.content=content;
         this.view=view;
         this.title=title;
-        this.writeTime=writeTime;
         this.hart=hart;
+        this.writeTime=writerTime;
     }
 
 }

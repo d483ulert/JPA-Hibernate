@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -41,11 +42,9 @@ public class BoardController {
     }
 
     @PostMapping("/write")
-    public String CreateBoard(BoardDTO boardDTO){
-        System.out.println(boardDTO);
-        Board entity = boardDTO.toEntity();
-        Board saved = boardRepository.save(entity);
-
+    public String CreateBoard(BoardDTO boardDTO, Model model,Board board) throws Exception{
+        boardDTO.setWriteTime(LocalDateTime.now());
+        boardService.write(boardDTO,board);
         return "redirect:board/list";
     }
 

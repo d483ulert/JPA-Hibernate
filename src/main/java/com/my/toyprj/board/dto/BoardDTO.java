@@ -19,6 +19,7 @@ public class BoardDTO {
     private String title;
     private int hart;
     private LocalDateTime writeTime;
+
     public Board toEntity(){
         return new Board(null,writer,content,view,title, writeTime, hart);
     }

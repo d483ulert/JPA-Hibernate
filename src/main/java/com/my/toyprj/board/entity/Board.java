@@ -38,8 +38,8 @@ public class Board  {
 
 
     @Builder
-    public Board(Integer num, String writer, String content, int view, String title, LocalDateTime writeTime,int hart) {
-        this.num = num;
+    public Board( String writer, String content, int view, String title, LocalDateTime writeTime,int hart) {
+
         this.writer = writer;
         this.content = content;
         this.view = view;

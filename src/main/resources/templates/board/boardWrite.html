@@ -34,15 +34,16 @@
 <script th:inline="javascript">
     $(document).ready(function(){
        var formObj = $("#formObj");
+
        $("#btn_add").on("click",function(){
             formObj.submit();
-
        });
-
     });
+
     function cmdList(){
         location.href="/board/list";
     };
+
 </script>
 
 </html>

@@ -45,7 +45,7 @@ public class BoardController {
     public String CreateBoard(BoardDTO boardDTO, Model model,Board board) throws Exception{
         boardDTO.setWriteTime(LocalDateTime.now());
         boardService.write(boardDTO,board);
-        return "redirect:board/list";
+        return "redirect:/board/list";
     }
 
 }

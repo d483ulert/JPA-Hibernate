@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang=ko xmlns:th="http://www.thymeleaf.org">
+<head th:replace ="common/common.html ::html-head "></head>
+<div th:replace="common/common.html :: header"></div>
+<body>
+
+<div class="container">
+<form action="#" id="formObj" th:action="@{/board/write}" th:object="${boardDTO}" method="post">
+    <div class="mb-3">
+        <label for="title" class="form-label">제목</label>
+        <input type="text" name="title" id="title" th:field="*{title}"/>
+    </div>
+    <div class="mb-3">
+        <label for="writer" class="form-label">작성자</label>
+        <input type="text"  id="writer" th:field="*{writer}"/>
+    </div>
+    <div class="mb-3">
+        <label for="title" class="form-label">내용</label>
+        <textarea id="content" name="content" rows="3" th:feild="*{content}"></textarea>
+    </div>
+</form>
+    <div class="float-end">
+        <button type="submit" id="btn_add" class="btn btn-Light">제출</button>
+        <button type="button" id="btn_list" class="btn btn-Light" onclick="cmdList()">목록</button>
+    </div>
+</div>
+
+
+</body>
+<footer th:replace="common/common.html :: footer"></footer>
+
+
+
+<script th:inline="javascript">
+    $(document).ready(function(){
+       var formObj = $("#formObj");
+
+       $("#btn_add").on("click",function(){
+            formObj.submit();
+       });
+    });
+
+    function cmdList(){
+        location.href="/board/list";
+    };
+
+</script>
+
+</html>

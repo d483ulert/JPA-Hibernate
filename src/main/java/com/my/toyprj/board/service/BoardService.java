@@ -10,4 +10,6 @@ public interface BoardService {
 
     public void write(BoardDTO boardDTO,Board board) throws Exception;
 
+    public Board read(int num) throws Exception;
+
 }

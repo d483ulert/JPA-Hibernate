@@ -30,8 +30,8 @@ public class BoardController {
 
 
     @GetMapping("/read")
-    public String BoardRead(BoardDTO boardDTO){
-
+    public String BoardRead(int num, Model model) throws Exception {
+        model.addAttribute("data",boardService.read(num));
         return "board/boardRead";
     }
 

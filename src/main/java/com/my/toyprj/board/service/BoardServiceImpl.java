@@ -35,4 +35,9 @@ public class BoardServiceImpl implements BoardService {
         boardRepository.save(board);
     }
 
+    @Override
+    public Board read(int num) throws Exception {
+        return boardRepository.getById(num);
+    }
+
 }

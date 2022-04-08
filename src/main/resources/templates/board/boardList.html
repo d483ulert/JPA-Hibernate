@@ -19,13 +19,14 @@
 
     <tr th:each="data:${data}">
         <td th:text="${data.num}"></td>
-        <td th:text="${data.title}"></td>
+        <td><a href="/board/boardRead.html" th:href="@{|/board/read?num=${data.num}|}" th:text="${data.title}"> </a></td>
         <td th:text="${data.writer}"></td>
         <td th:text="${#temporals.format(data.writeTime,'yyyy-mm-dd hh:mm')}"></td>
         <td th:text="${data.view}"></td>
         <td th:text="${data.hart}"></td>
     </tr>
 </table>
+
     <div class="float-end">
         <a class="btn btn-light" th:href="@{/board/write}" role="button">글쓰기</a>
     </div>

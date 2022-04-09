@@ -36,7 +36,7 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public Board read(int num) throws Exception {
         return boardRepository.getById(num);
     }

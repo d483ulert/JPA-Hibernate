@@ -28,17 +28,15 @@ public class BoardController {
         return "board/boardList";
     }
 
-
-    @GetMapping("/read/{num}")
-    public void BoardRead(@PathVariable int num, Model model) throws Exception {
+    @GetMapping("/Detail")
+    public String BoardRead() throws Exception {
+        return "board/boardRead";
+    }
+    @GetMapping("/read")
+    public void BoardRead(int num, Model model) throws Exception {
         model.addAttribute("data",boardService.read(num));
     }
 
-
-    @GetMapping("/read")
-    public String BoardRead1(BoardDTO boardDTO ){
-        return "board/boardRead";
-    }
 
     @GetMapping("/write")
     public String BoardWrite(BoardDTO boardDTO ){

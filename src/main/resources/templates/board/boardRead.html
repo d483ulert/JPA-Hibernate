@@ -5,18 +5,19 @@
 <body>
 
 <div class="container">
+
     <form action="#" th:object="${data}" method="POST">
         <table class="table table-bordered" th:each="data:${data}">
             <tr>
-                <td th:text="${data.title}"></td>
+                <th style="text-align:center;" width="40px" th:text="${data.num}"></th>
+                <th style="text-align:center;"              th:text="${data.title}"></th>
+                <th style="text-align:center;" width="80px"th:text="${data.writer}"></th>
             </tr>
             <tr>
-                <td th:text="${data.content}"></td>
-            </tr>
-            <tr>
-                <td th:text="${data.writer}"></td>
+                <th colspan="5" height="500px;" th:text="${data.content}"></th>
             </tr>
         </table>
+
     </form>
     <div class="float-end">
         <button type="submit" id="btn_add" class="btn btn-Light">수정하기</button>

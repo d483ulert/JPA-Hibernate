@@ -4,13 +4,10 @@ import com.my.toyprj.board.entity.Board;
 import com.my.toyprj.board.repository.BoardRepository;
 import com.my.toyprj.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
-import java.util.List;
 
 
 @Controller
@@ -40,10 +37,15 @@ public class BoardController {
     }
 
     @PostMapping("/write")
-    public String CreateBoard(BoardDTO boardDTO, Model model,Board board) throws Exception{
+    public String CreateBoard(BoardDTO boardDTO,Board board) throws Exception{
         boardDTO.setWriteTime(LocalDateTime.now());
         boardService.write(boardDTO,board);
         return "redirect:/board/list";
+    }
+
+    @DeleteMapping("/delete")
+    public void DeleteBoard(BoardDTO boardDTO, Board board){
+
     }
 
 }

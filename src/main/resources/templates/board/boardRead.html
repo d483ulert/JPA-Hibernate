@@ -6,7 +6,7 @@
 
 <div class="container">
 
-    <form action="#" th:object="${data}" method="POST">
+    <form action="#" id="formObj" th:object="${data}" method="POST">
         <table class="table table-bordered" th:each="data:${data}">
             <tr>
                 <th style="text-align:center;" width="40px" th:text="${data.num}"></th>
@@ -20,6 +20,7 @@
 
     </form>
     <div class="float-end">
+        <button type="submit" id="btn_del" class="btn btn-Light">삭제하기</button>
         <button type="submit" id="btn_add" class="btn btn-Light">수정하기</button>
         <button type="button" id="btn_list" class="btn btn-Light" onclick="cmdList()">목록</button>
     </div>
@@ -32,6 +33,19 @@
 
 
 <script th:inline="javascript">
+
+    $(document).ready(function(){
+        $("#btn_del").click(function(){
+<!--
+        $.ajax({
+            url:"/board/delete",
+            method:"POST",
+            dataType:"json",
+            data:dataString,
+        });-->
+	});
+
+
 
     function cmdList(){
         location.href="/board/list";

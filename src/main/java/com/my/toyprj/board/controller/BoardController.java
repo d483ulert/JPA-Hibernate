@@ -45,6 +45,8 @@ public class BoardController {
 
     @DeleteMapping("/delete")
     public void DeleteBoard(BoardDTO boardDTO, Board board){
+        System.out.println(board+"\n***\n"+boardDTO);
+
 
     }
 

@@ -36,13 +36,18 @@
 
     $(document).ready(function(){
         $("#btn_del").click(function(){
-<!--
-        $.ajax({
-            url:"/board/delete",
-            method:"POST",
-            dataType:"json",
-            data:dataString,
-        });-->
+        var param = $("#formObj");
+        alert('ss');
+            $.ajax({
+                url:"/board/delete",
+                type:"DELETE",
+                dataType:"json",
+                data:param,
+                success:function(data){
+                    console.log(data);
+                }
+            });
+    	});
 	});
 
 

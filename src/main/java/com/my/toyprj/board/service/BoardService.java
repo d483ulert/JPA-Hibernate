@@ -6,10 +6,11 @@ import java.util.List;
 
 public interface BoardService {
 
-    public List<Board> list() throws Exception;
+    public List<Board> list();
 
-    public void write(BoardDTO boardDTO,Board board) throws Exception;
+    public void write(BoardDTO boardDTO,Board board);
 
-    public Board read(int num) throws Exception;
+    public Board read(int num);
 
+    public void delete(int num);
 }

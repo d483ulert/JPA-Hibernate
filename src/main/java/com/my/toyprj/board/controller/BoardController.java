@@ -19,14 +19,14 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping("/list")
-    public String BoardList(Model model) throws Exception{
+    public String BoardList(Model model) {
         model.addAttribute("data",boardService.list());
 
         return "board/boardList";
     }
 
     @GetMapping("/read")
-    public String BoardRead(int num, Model model) throws Exception {
+    public String BoardRead(int num, Model model)  {
         model.addAttribute("data",boardService.read(num));
         return "board/boardRead";
     }
@@ -44,10 +44,8 @@ public class BoardController {
     }
 
     @DeleteMapping("/delete")
-    public void DeleteBoard(BoardDTO boardDTO, Board board){
-        System.out.println(board+"\n***\n"+boardDTO);
-
-
+    public void DeleteBoard(int num)  {
+        boardService.delete(num);
     }
 
 }

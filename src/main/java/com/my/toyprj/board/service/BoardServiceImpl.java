@@ -17,13 +17,13 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     @Transactional
-    public List<Board> list() throws Exception {
+    public List<Board> list(){
         return boardRepository.findAll(Sort.by(Sort.Direction.DESC,"num"));
     }
 
     @Override
     @Transactional
-    public void write(BoardDTO boardDTO,Board board) throws Exception {
+    public void write(BoardDTO boardDTO,Board board)  {
         board = Board.builder()
                 .content(boardDTO.getContent())
                 .hart(boardDTO.getHart())
@@ -37,8 +37,14 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     @Transactional(readOnly = true)
-    public Board read(int num) throws Exception {
+    public Board read(int num) {
         return boardRepository.getById(num);
+    }
+
+    @Override
+    @Transactional
+    public void delete(int num){
+        boardRepository.deleteById(num);
     }
 
 }

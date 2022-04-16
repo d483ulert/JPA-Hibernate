@@ -20,7 +20,9 @@
             <input type="hidden" name="_method" value="delete">
             <input type="hidden" name="num" id="num" th:value="${data.num}">
             <button type="submit" id="btn_del" class="btn btn-Light">삭제하기</button>
-            <button type="button" id="btn_add" class="btn btn-Light">수정하기</button>
+            <a th:href="@{|/board/modifyView?num=${data.num}|}">
+                <button type="button" id="btn_mod" class="btn btn-Light">수정하기</button>
+            </a>
             <button type="button" id="btn_list" class="btn btn-Light" onclick="cmdList()">목록</button>
         </form>
     </div>
@@ -31,20 +33,20 @@
 <script th:inline="javascript">
 
     $(document).ready(function(){
+        let data = $("#formObj");
 
         $('#btn_del').click(function(){
-            let data = $("#formObj");
             if (confirm("정말 삭제하시겠습니까?") == true){
-             data.submit();
+                data.submit();
             }else{
-             return false;
+                return false;
             }
         });
-    });
 
-    function cmdList(){
-        location.href="/board/list";
-    };
+        $('#btn_mod').click(function(){
+            location.href="/board/modify"
+        });
+    });
 
 </script>
 

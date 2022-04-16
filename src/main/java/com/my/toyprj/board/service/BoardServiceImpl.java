@@ -47,4 +47,10 @@ public class BoardServiceImpl implements BoardService {
         boardRepository.deleteById(num);
     }
 
+    @Override
+    @Transactional
+    public Board modify(int num) {
+        return boardRepository.getById(num);
+    }
+
 }

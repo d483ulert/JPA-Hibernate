@@ -49,7 +49,20 @@ public class BoardController {
     public String  DeleteBoard(@PathVariable int num)  {
         boardService.delete(num);
         return "redirect:/board/list";
+    }
 
+    @GetMapping("/modifyView")
+    public String ModifyView(int num, Model model){
+        System.out.println("num:"+num);
+        model.addAttribute("data",boardService.modify(num));
+
+        return "board/boardModify";
+    }
+
+    @PutMapping("/modify")
+    public String ModifyBoard(@PathVariable int num){
+
+        return "redirect:/board/list";
     }
 
 }

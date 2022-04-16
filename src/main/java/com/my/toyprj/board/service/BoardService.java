@@ -13,4 +13,6 @@ public interface BoardService {
     public Board read(int num);
 
     public void delete(int num);
+
+    public Board modify(int num);
 }

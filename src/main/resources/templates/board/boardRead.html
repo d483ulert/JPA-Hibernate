@@ -5,50 +5,37 @@
 <body>
 
 <div class="container">
-
-    <form action="#" id="formObj" th:object="${data}" method="POST">
-        <table class="table table-bordered" th:each="data:${data}">
-            <tr>
-                <th style="text-align:center;" width="40px" th:text="${data.num}"></th>
-                <th style="text-align:center;"              th:text="${data.title}"></th>
-                <th style="text-align:center;" width="80px"th:text="${data.writer}"></th>
-            </tr>
-            <tr>
-                <th colspan="5" height="500px;" th:text="${data.content}"></th>
-            </tr>
-        </table>
-
-    </form>
+    <table class="table table-bordered" th:each="data:${data}">
+        <tr>
+            <th style="text-align:center;" width="40px" th:text="${data.num}"></th>
+            <th style="text-align:center;"              th:text="${data.title}"></th>
+            <th style="text-align:center;" width="80px"th:text="${data.writer}"></th>
+        </tr>
+        <tr>
+            <th colspan="5" height="500px;" th:text="${data.content}"></th>
+        </tr>
+    </table>
     <div class="float-end">
-        <button type="submit" id="btn_del" class="btn btn-Light">삭제하기</button>
-        <button type="submit" id="btn_add" class="btn btn-Light">수정하기</button>
-        <button type="button" id="btn_list" class="btn btn-Light" onclick="cmdList()">목록</button>
+        <form action="#" id="formObj" th:object="${data}" th:action="@{/board/delete/}+${data.num}" th:method="delete">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="num" id="num" th:value="${data.num}">
+            <button type="submit" id="btn_del" class="btn btn-Light">삭제하기</button>
+            <button type="button" id="btn_add" class="btn btn-Light">수정하기</button>
+            <button type="button" id="btn_list" class="btn btn-Light" onclick="cmdList()">목록</button>
+        </form>
     </div>
 </div>
-
-
 </body>
 <footer th:replace="common/common.html :: footer"></footer>
-
-
 
 <script th:inline="javascript">
 
     $(document).ready(function(){
-        alert('아웅');
-        var param = $('#formObj');
-        console.log(param);
-        $('#btn_del').on("click",function(){
-        alert('미미');
-            param.attr("action","/board/delete");
-            param.submit();
-        });
 
-
-        function cmdList(){
-            location.href="/board/list";
-        };
     });
+    function cmdList(){
+        location.href="/board/list";
+    };
 
 </script>
 

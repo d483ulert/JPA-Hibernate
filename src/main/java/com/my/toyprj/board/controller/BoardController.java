@@ -45,10 +45,12 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
-    @DeleteMapping("/delete")
-    public void DeleteBoard(int num, RedirectAttributes rttr)  {
+    @DeleteMapping("/delete/{num}")
+    public String  DeleteBoard(@PathVariable int num, RedirectAttributes rttr)  {
         boardService.delete(num);
         rttr.addFlashAttribute("msg", "삭제되었습니다.");
+        return "redirect:/board/list";
+
     }
 
 }

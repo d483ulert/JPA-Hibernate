@@ -7,6 +7,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import java.time.LocalDateTime;
 
 
@@ -44,8 +46,9 @@ public class BoardController {
     }
 
     @DeleteMapping("/delete")
-    public void DeleteBoard(int num)  {
+    public void DeleteBoard(int num, RedirectAttributes rttr)  {
         boardService.delete(num);
+        rttr.addFlashAttribute("msg", "삭제되었습니다.");
     }
 
 }

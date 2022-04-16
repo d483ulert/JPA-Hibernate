@@ -35,26 +35,20 @@
 <script th:inline="javascript">
 
     $(document).ready(function(){
-        $("#btn_del").click(function(){
-        var param = $("#formObj");
-        alert('ss');
-            $.ajax({
-                url:"/board/delete",
-                type:"DELETE",
-                dataType:"json",
-                data:param,
-                success:function(data){
-                    console.log(data);
-                }
-            });
-    	});
-	});
+        alert('아웅');
+        var param = $('#formObj');
+        console.log(param);
+        $('#btn_del').on("click",function(){
+        alert('미미');
+            param.attr("action","/board/delete");
+            param.submit();
+        });
 
 
-
-    function cmdList(){
-        location.href="/board/list";
-    };
+        function cmdList(){
+            location.href="/board/list";
+        };
+    });
 
 </script>
 

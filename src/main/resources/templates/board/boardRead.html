@@ -32,7 +32,16 @@
 
     $(document).ready(function(){
 
+        $('#btn_del').click(function(){
+            let data = $("#formObj");
+            if (confirm("정말 삭제하시겠습니까?") == true){
+             data.submit();
+            }else{
+             return false;
+            }
+        });
     });
+
     function cmdList(){
         location.href="/board/list";
     };

@@ -23,7 +23,7 @@
             <a th:href="@{|/board/modifyView?num=${data.num}|}">
                 <button type="button" id="btn_mod" class="btn btn-Light">수정하기</button>
             </a>
-            <button type="button" id="btn_list" class="btn btn-Light" onclick="cmdList()">목록</button>
+            <button type="button" id="btn_list" class="btn btn-Light">목록</button>
         </form>
     </div>
 </div>
@@ -46,7 +46,14 @@
         $('#btn_mod').click(function(){
             location.href="/board/modify"
         });
+
+        $('#btn_list').click(function(){
+            location.href="/board/list"
+        });
+
+
     });
+
 
 </script>
 

@@ -14,5 +14,7 @@ public interface BoardService {
 
     public void delete(int num);
 
-    public Board modify(int num);
+    public Board modifyView(int num);
+
+    public void modify(BoardDTO boardDTO, Board board);
 }

@@ -3,12 +3,28 @@
 <head th:replace ="common/common.html ::html-head "></head>
 <div th:replace="common/common.html :: header"></div>
 <body>
-
 <div class="container">
-
+    <form class="form-horizontal" action="#" id="formObj" th:action="@{/board/modify/}" th:each="data:${data}" method="post">
+        <input type="hidden" name="_method" value="put">
+        <input type="hidden" name="num" th:value="${data.num}">
+        <div class="form-group">
+            <label for="title" class="col-sm-2 control-label">제목</label>
+            <input type="text" class="form-control" name="title" id="title" th:value="${data.title}"/>
+        </div>
+        <div class="form-group">
+            <label for="writer" class="col-sm-2 control-label">작성자</label>
+            <input type="text"  class="form-control" id="writer" readonly="true" th:value="${data.writer}"/>
+        </div>
+        <div class="form-group">
+            <label for="content" class="col-sm-2 control-label">내용</label>
+            <textarea id="content"class="form-control" name="content" rows="3" th:text="${data.content}"></textarea>
+        </div>
+    </form>
+    <div class="float-end">
+        <button type="submit" id="btn_mody" class="btn btn-Light">등록</button>
+        <button type="button" id="btn_list" class="btn btn-Light">목록</button>
+    </div>
 </div>
-aa
-
 </body>
 <footer th:replace="common/common.html :: footer"></footer>
 
@@ -16,6 +32,21 @@ aa
 
 <script th:inline="javascript">
 
+    $(document).ready(function(){
+        let data = $("#formObj");
+
+        $('#btn_mody').click(function(){
+            if (confirm("수정하시겠습니까?") == true){
+                data.submit();
+            }else{
+                return false;
+            }
+        });
+
+        $('#btn_list').click(function(){
+            location.href="/board/list"
+        });
+    });
 
 </script>
 

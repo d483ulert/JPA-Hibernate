@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDateTime;
 
@@ -17,7 +16,6 @@ import java.time.LocalDateTime;
 @RequestMapping("/board")
 public class BoardController {
 
-    private final BoardRepository boardRepository;
     private final BoardService boardService;
 
     @GetMapping("/list")
@@ -52,16 +50,16 @@ public class BoardController {
     }
 
     @GetMapping("/modifyView")
-    public String ModifyView(int num, Model model){
+    public String ModifyView(int num, Model model, Board board){
         System.out.println("num:"+num);
-        model.addAttribute("data",boardService.modify(num));
+        model.addAttribute("data",boardService.modifyView(num));
 
         return "board/boardModify";
     }
 
     @PutMapping("/modify")
-    public String ModifyBoard(@PathVariable int num){
-
+    public String ModifyBoard(BoardDTO boardDTO,Board board){
+        boardService.modify(boardDTO,board);
         return "redirect:/board/list";
     }
 

@@ -49,8 +49,18 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     @Transactional
-    public Board modify(int num) {
+    public Board modifyView(int num) {
         return boardRepository.getById(num);
+    }
+
+    @Override
+    @Transactional
+    public void modify(BoardDTO boardDTO, Board board) {
+        board = boardRepository.getById(boardDTO.getNum());
+        board = Board.builder()
+                .content(boardDTO.getContent())
+                .title(boardDTO.getTitle())
+                .build();
     }
 
 }

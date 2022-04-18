@@ -39,13 +39,17 @@ public class Board  {
 
     @Builder
     public Board( String writer, String content, int view, String title, LocalDateTime writeTime,int hart) {
-
         this.writer = writer;
         this.content = content;
         this.view = view;
         this.title= title;
         this.writeTime=LocalDateTime.now();
         this.hart=hart;
+    }
+
+    public void update(String title, String content){
+        this.title= title;
+        this.content=content;
     }
 
 

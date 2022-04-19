@@ -28,6 +28,7 @@ public class BoardController {
     @GetMapping("/read")
     public String BoardRead(int num, Model model)  {
         model.addAttribute("data",boardService.read(num));
+        boardService.viewPlus(num);
         return "board/boardRead";
     }
 
@@ -63,4 +64,8 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
+    @PutMapping("/plusHart")
+    public void HartPlus(int num){
+        boardService.plusHart(num);
+    }
 }

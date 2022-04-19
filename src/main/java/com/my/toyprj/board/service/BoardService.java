@@ -17,4 +17,8 @@ public interface BoardService {
     public Board modifyView(int num);
 
     public void modify(BoardDTO boardDTO, Board board);
+
+    public void viewPlus(int num);
+
+    public void plusHart(int num);
 }

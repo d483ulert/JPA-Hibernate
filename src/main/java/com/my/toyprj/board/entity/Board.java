@@ -52,5 +52,11 @@ public class Board  {
         this.content=content;
     }
 
+    public void updateHit(int view){
+        this.view++;
+    }
 
+    public void updateHart(int hart){
+        this.hart++;
+    }
 }

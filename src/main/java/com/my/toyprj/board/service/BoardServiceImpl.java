@@ -61,4 +61,18 @@ public class BoardServiceImpl implements BoardService {
 
     }
 
+    @Override
+    @Transactional
+    public void viewPlus(int num) {
+        Board board = boardRepository.getById(num);
+        board.updateHit(board.getView());
+    }
+
+    @Override
+    @Transactional
+    public void plusHart(int num) {
+        Board board = boardRepository.getById(num);
+        board.updateHart(board.getHart());
+    }
+
 }

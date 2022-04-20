@@ -1,14 +1,16 @@
 package com.my.toyprj.board.controller;
-import com.my.toyprj.board.dto.BoardDTO;
-import com.my.toyprj.board.entity.Board;
-import com.my.toyprj.board.repository.BoardRepository;
-import com.my.toyprj.board.service.BoardService;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+        import com.my.toyprj.board.dto.BoardDTO;
+        import com.my.toyprj.board.entity.Board;
+        import com.my.toyprj.board.repository.BoardRepository;
+        import com.my.toyprj.board.service.BoardService;
+        import lombok.RequiredArgsConstructor;
+        import org.springframework.stereotype.Controller;
+        import org.springframework.ui.Model;
+        import org.springframework.web.bind.annotation.*;
+        import org.thymeleaf.expression.Strings;
 
-import java.time.LocalDateTime;
+        import java.time.LocalDateTime;
+        import java.util.Map;
 
 
 @Controller
@@ -65,7 +67,7 @@ public class BoardController {
     }
 
     @PutMapping("/plusHart")
-    public void HartPlus(int num){
-        boardService.plusHart(num);
+    public @ResponseBody void HartPlus(@RequestParam Map<String,Object> param){
+        boardService.plusHart(Integer.parseInt(param.get("num").toString()));
     }
 }

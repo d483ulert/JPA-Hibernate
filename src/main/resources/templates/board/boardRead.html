@@ -10,7 +10,11 @@
         <tr>
             <th style="text-align:center;" width="40px" th:text="${data.num}"></th>
             <th style="text-align:center;"              th:text="${data.title}"></th>
-            <th style="text-align:center;" width="80px"th:text="${data.writer}"></th>
+            <th style="text-align:center;" width="80px"th:text="${data.hart}"></th>
+        </tr>
+        <tr>
+            <th colspan="2" style="text-align:left;" width="80px"th:text="${data.writer}"></th>
+            <th style="text-align:center;" width="80px"th:text="${data.view}"></th>
         </tr>
         <tr>
             <th colspan="5" height="500px;" th:text="${data.content}"></th>
@@ -21,9 +25,7 @@
             <input type="hidden" name="_method" value="delete">
             <input type="hidden" name="_method" value="put">
             <input type="hidden" name="num" id="num" th:value="${data.num}">
-            <a th:href="@{|/board/plusHart?num=${data.num}|}">
-                <i class="fas fa-heart" id="btn_hart"></i>
-            </a>
+            <button type="submit" id="btn_hart" class="btn btn-Light">추천</button>
             <button type="submit" id="btn_del" class="btn btn-Light">삭제하기</button>
             <a th:href="@{|/board/modifyView?num=${data.num}|}">
                 <button type="button" id="btn_mod" class="btn btn-Light">수정하기</button>
@@ -47,8 +49,17 @@
                 return false;
             }
         });
+
         $('#btn_hart').click(function(){
-            location.href="/board/plusHart"
+            var param = {
+                num:$("#num").val()
+            };
+            $.ajax({
+                url:"/board/plusHart",
+                type:"PUT",
+                data:param
+            }).done(function(){
+            });
         });
 
         $('#btn_mod').click(function(){

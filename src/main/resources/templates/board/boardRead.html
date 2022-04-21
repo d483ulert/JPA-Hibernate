@@ -57,8 +57,12 @@
             $.ajax({
                 url:"/board/plusHart",
                 type:"PUT",
-                data:param
+                data:param,
+                success:function(data){
+                    alert('sss');
+                }
             }).done(function(){
+
             });
         });
 

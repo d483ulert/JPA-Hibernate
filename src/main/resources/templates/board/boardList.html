@@ -21,7 +21,7 @@
         <td th:text="${data.num}"></td>
         <td><a href="/board/boardRead.html" th:href="@{|/board/read?num=${data.num}|}" th:text="${data.title}"> </a></td>
         <td th:text="${data.writer}"></td>
-        <td th:text="${#temporals.format(data.writeTime,'yyyy-mm-dd hh:mm')}"></td>
+        <td th:text="${#temporals.format(data.writeTime,'yyyy-MM-dd hh:mm:ss')}"></td>
         <td th:text="${data.view}"></td>
         <td th:text="${data.hart}"></td>
     </tr>

@@ -6,6 +6,8 @@ import com.my.toyprj.board.repository.BoardRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -43,5 +45,10 @@ public class BoardTests {
         boardRepository.delete(entity);
     }
 
-
+    @Test
+    @Transactional
+    void update(){
+        Board board = boardRepository.getById(28);
+        board.update("제목수정","본문수정");
+    }
 }

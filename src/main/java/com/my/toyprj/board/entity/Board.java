@@ -1,7 +1,10 @@
 package com.my.toyprj.board.entity;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -34,6 +37,7 @@ public class Board  {
     private int hart;
 
     @Column
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime writeTime = LocalDateTime.now();
 
 
@@ -43,7 +47,7 @@ public class Board  {
         this.content = content;
         this.view = view;
         this.title= title;
-        this.writeTime=LocalDateTime.now();
+        this.writeTime=writeTime;
         this.hart=hart;
     }
 

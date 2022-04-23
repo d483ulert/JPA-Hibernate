@@ -10,7 +10,7 @@
         <tr>
             <th style="text-align:center;" width="40px" th:text="${data.num}"></th>
             <th style="text-align:center;"              th:text="${data.title}"></th>
-            <th style="text-align:center;" width="80px"th:text="${data.hart}"></th>
+            <th id ="hart" style="text-align:center;" width="80px"th:text="${data.hart}"></th>
         </tr>
         <tr>
             <th colspan="2" style="text-align:left;" width="80px"th:text="${data.writer}"></th>
@@ -59,7 +59,8 @@
                 type:"PUT",
                 data:param,
                 success:function(data){
-                    alert('sss');
+                    console.log(data);
+                    $("#hart").html(data.hart);
                 }
             }).done(function(){
 

@@ -10,6 +10,7 @@ package com.my.toyprj.board.controller;
         import org.thymeleaf.expression.Strings;
 
         import java.time.LocalDateTime;
+        import java.util.HashMap;
         import java.util.Map;
 
 
@@ -67,7 +68,11 @@ public class BoardController {
     }
 
     @PutMapping("/plusHart")
-    public @ResponseBody void HartPlus(@RequestParam Map<String,Object> param){
+    public @ResponseBody HashMap<String,Object> HartPlus(@RequestParam Map<String,Object> param){
         boardService.plusHart(Integer.parseInt(param.get("num").toString()));
+        HashMap hmap = new HashMap<String,Object>();
+        Board board = boardService.read(Integer.parseInt(param.get("num").toString()));
+        hmap.put("hart",board.getHart());
+        return hmap;
     }
 }

@@ -13,7 +13,7 @@
             </div>
         </div>
         <div class="col-md-offset-3">
-            <form role="form">
+            <form role="form" class="form-inline">
                 <div class="form-group">
                     <label for="userName">성명</label>
                     <input type="text" name="userName" class="form-control" id="userName" placeholder="이름을 입력해 주세요">
@@ -32,8 +32,14 @@
                     <span id="alert"></span>
                 </div>
                 <div class="form-group">
-                    <label for="phoneNum">휴대폰 번호</label>
-                    <input type="tel" name="phoneNum" class="form-control" id="phoneNum" placeholder="휴대폰번호를 입력해 주세요">
+                    <label for="phoneNum1" >휴대폰 번호</label>
+                    <select name="phoneNum1" id="phoneNum1" class="form-control">
+                        <option value="010">010</option>
+                        <option value="070">070</option>
+                        <option value="02">02</option>
+                    </select>
+                    <input type="tel" name="phoneNum"  id="phoneNum2" class="form-control" placeholder="">
+                    <input type="tel" name="phoneNum"  id="phoneNum3" class="form-control"placeholder="">
                 </div>
 
                 <div class="form-group">

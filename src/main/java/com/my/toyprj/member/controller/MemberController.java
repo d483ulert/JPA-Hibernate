@@ -2,13 +2,11 @@ package com.my.toyprj.member.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpRequest;
 import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequiredArgsConstructor
@@ -23,10 +21,13 @@ public class MemberController {
     }
 
     @PostMapping("/pwdVal")
-    public HashMap pwd(@RequestParam String pwd, @RequestParam String pwd2){
-        HashMap<String,String> hmap = new HashMap<>();
-
-        return hmap;
+    public @ResponseBody Map pwd(@RequestParam Map<String,String> map){
+        if(map.get("passwd").equals(map.get("passwd2"))){
+            map.put("alert","true");
+        }else{
+            map.put("alert","false");
+        }
+        return map;
     }
 
 

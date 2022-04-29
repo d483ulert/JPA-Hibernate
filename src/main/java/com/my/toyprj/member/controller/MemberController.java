@@ -30,6 +30,11 @@ public class MemberController {
         return map;
     }
 
+    @GetMapping("/popUp")
+    public String popUp(){
+
+        return "member/popUp";
+    }
 
 
 

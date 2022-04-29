@@ -32,14 +32,8 @@
                     <span id="alert"></span>
                 </div>
                 <div class="form-group">
-                    <label for="phoneNum1" >휴대폰 번호</label>
-                    <select name="phoneNum1" id="phoneNum1" class="form-control">
-                        <option value="010">010</option>
-                        <option value="070">070</option>
-                        <option value="02">02</option>
-                    </select>
-                    <input type="tel" name="phoneNum"  id="phoneNum2" class="form-control" placeholder="">
-                    <input type="tel" name="phoneNum"  id="phoneNum3" class="form-control"placeholder="">
+                    <label for="phoneNum" >휴대폰 번호</label>
+                    <input type="tel" name="phoneNum"  id="phoneNum" class="form-control"placeholder="휴대폰 번호를 입력해주세요.">
                 </div>
 
                 <div class="form-group">
@@ -49,7 +43,7 @@
                             <span class="fa fa-check"></span>
                             <input id="agree" type="checkbox" autocomplete="off" checked>
                         </label>
-                        <a href="#">이용약관</a>에 동의합니다.
+                        <a href="/member/popUp" onclick="window.open(this.href, 'popUp', 'width=400,height=300,toolbars=no,scrollbars=no'); return false;">이용약관</a>에 동의합니다.
                     </div>
                 </div>
 
@@ -82,6 +76,7 @@ $(document).ready(function(){
         }).done(function(data){
         });
     });
+
 
 });
 </script>

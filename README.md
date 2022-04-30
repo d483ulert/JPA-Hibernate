@@ -1,11 +1,12 @@
 # JPA hibernate 
+<h2> 개발 환경</h2>
 #Java11<br>
 #Spring Boot Gradle<br>
 #Aws EC2 Ubuntu <br>
 #Docker 20.10.12 <br>
 #Mysql 8.0.26<br>
 
-#개발완료 <br>
+ <h2>개발완료 </h2> <br>
 - CRUD 게시판
 - 좋아요
 - 조회수

@@ -2,7 +2,8 @@
 #Java11<br>
 #Spring Boot Gradle<br>
 #Mysql<br>
-#Aws Ec2 Docker mysql<br>
+#Aws Ec2 <br>
+#Docker 20.10.12 <br>
+#mysql 8.0.26<br>
 
-#추후 로그인 + 이미지게시판 개발예정<br>
-#Jenkins, Docker git 연동  후 CI/CD <br>
+#Jenkins, Docker git 연동  후 CI/CD 진행예정  <br>

@@ -9,9 +9,12 @@ public class LoginController {
 
     @GetMapping("/index")
     public String login(){
-
         return "login/index";
     }
 
+    @GetMapping("/disallow")
+    public String disallow(){
+        return "login/disallow";
+    }
 
 }

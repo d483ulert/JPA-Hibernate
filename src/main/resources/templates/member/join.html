@@ -4,7 +4,6 @@
 <head th:replace ="common/common ::html-head "></head>
 <div th:replace="common/common :: header"></div>
 
-
 <body>
     <div class="container" style="margin-top:60px;">
         <div class="page-header">
@@ -66,13 +65,13 @@ $(document).ready(function(){
             passwd :$('#passwd').val(),
             passwd2 :$('#passwd2').val()
         };
-        console.log(param);
+
         $.ajax({
             url:"/member/pwdVal",
             type:"POST",
             data:param,
             success:function(data){
-                if(data.alert=='false'){
+                if(data.alert =='false'){
                     $('#alert').text('비밀번호가 일치하지 않습니다.');
                     $('#alert').css('color','red');
                 }
@@ -80,7 +79,6 @@ $(document).ready(function(){
         }).done(function(data){
         });
     });
-
 
 });
 </script>

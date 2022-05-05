@@ -1,5 +1,6 @@
 package com.my.toyprj.member.entity;
 
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -33,5 +34,10 @@ public class MemberAuth {
     @Column
     private LocalDateTime upDate;
 
+    @Builder
+    public MemberAuth(Long userNo, String auth){
+        this.userNo =userNo;
+        this.auth=auth;
+    }
 
 }

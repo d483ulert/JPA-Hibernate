@@ -1,10 +1,7 @@
 package com.my.toyprj.member.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,7 +12,6 @@ import java.time.LocalDateTime;
 @Entity
 @Getter
 @NoArgsConstructor
-@EqualsAndHashCode(of="userNo")
 public class Member {
 
     @Id
@@ -46,7 +42,7 @@ public class Member {
     private LocalDateTime recentlyLogin;
 
     @Builder
-    public Member(String userId, String passwd, String userName, String email, String phoneNum, int hartNo){
+    public Member( String userId, String passwd, String userName, String email, String phoneNum, int hartNo){
         this.userId = userId;
         this.passwd = passwd;
         this.userName = userName;

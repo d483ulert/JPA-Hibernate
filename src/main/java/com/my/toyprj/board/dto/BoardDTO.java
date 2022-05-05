@@ -1,8 +1,6 @@
 package com.my.toyprj.board.dto;
-
 import com.my.toyprj.board.entity.Board;
 import lombok.*;
-
 import java.time.LocalDateTime;
 
 

@@ -20,8 +20,9 @@ public class MemberController {
         return "member/join";
     }
 
-    @PostMapping("/pwdVal")
+    @PostMapping("/pwdValidation")
     public @ResponseBody Map pwd(@RequestParam Map<String,String> map){
+        System.out.println(map);
         if(map.get("passwd").equals(map.get("passwd2"))){
             map.put("alert","true");
         }else{

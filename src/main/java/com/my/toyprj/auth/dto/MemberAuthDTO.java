@@ -2,9 +2,6 @@ package com.my.toyprj.auth.dto;
 import com.my.toyprj.auth.entity.MemberAuth;
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import java.time.LocalDateTime;
 
 @Getter

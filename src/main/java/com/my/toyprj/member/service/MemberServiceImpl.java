@@ -28,5 +28,6 @@ public class MemberServiceImpl implements MemberService{
                 .phoneNum(memberDTO.getPhoneNum())
                 .build();
         memberRepository.save(member);
+
     }
 }

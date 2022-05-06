@@ -22,11 +22,32 @@ $(document).ready(function(){
                 if(data.alert =='false'){
                     $('#alert').text('비밀번호가 일치하지 않습니다.');
                     $('#alert').css('color','red');
+                }else{
+                    $('#alert').text('');
                 }
             }
         }).done(function(data){
         });
     });
+
+    $("#join-submit").on("click",function(){
+        const param = {
+            userId : $('#userId').val(),
+            passwd : $('#passwd').val(),
+            userName : $('#userName').val(),
+            email : $('#userEmail').val(),
+            phoneNum : $('#phoneNum').val()
+        };
+        $.ajax({
+            url:"/member/user",
+            type:"POST",
+            data:param,
+            success:function(){
+            }
+        }).done(function(){
+            alert('회원가입이 완료되었습니다.');
+        });
+   });
 });
 </script>
 <body>

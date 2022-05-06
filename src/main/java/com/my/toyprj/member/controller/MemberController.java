@@ -1,5 +1,7 @@
 package com.my.toyprj.member.controller;
 
+import com.my.toyprj.member.dto.MemberDTO;
+import com.my.toyprj.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +15,7 @@ import java.util.Map;
 @RequestMapping("/member")
 public class MemberController {
 
+    private final MemberService memberService;
 
     @GetMapping("/join")
     public String Join(){
@@ -20,9 +23,16 @@ public class MemberController {
         return "member/join";
     }
 
+    @PostMapping("/user")
+    public String User(MemberDTO memberDTO){
+        memberService.add(memberDTO);
+
+        return "redirect:member/join";
+    }
+
+
     @PostMapping("/pwdValidation")
     public @ResponseBody Map pwd(@RequestParam Map<String,String> map){
-        System.out.println(map);
         if(map.get("passwd").equals(map.get("passwd2"))){
             map.put("alert","true");
         }else{

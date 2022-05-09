@@ -1,10 +1,12 @@
 package com.my.toyprj.member.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.my.toyprj.auth.entity.MemberAuth;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter
@@ -38,6 +40,12 @@ public class Member {
     @Column
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime recentlyLogin;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name="userNo")
+    private List <MemberAuth> authList;
+
+
 
     @Builder
     public Member( String userId, String passwd, String userName, String email, String phoneNum, int hartNo){

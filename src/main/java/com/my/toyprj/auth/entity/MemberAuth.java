@@ -23,7 +23,7 @@ public class MemberAuth {
     private Long userAuthNo;
 
     @Column
-    private Long userNo;
+    private int userNo;
 
     @Column
     private String auth;
@@ -32,10 +32,10 @@ public class MemberAuth {
     private LocalDateTime regDate;
 
     @Column
-    private LocalDateTime upDate;
+    private LocalDateTime updateTime;
 
     @Builder
-    public MemberAuth(Long userNo, String auth){
+    public MemberAuth(int userNo, String auth){
         this.userNo =userNo;
         this.auth=auth;
     }

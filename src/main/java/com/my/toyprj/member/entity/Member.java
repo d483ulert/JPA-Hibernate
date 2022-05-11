@@ -48,13 +48,14 @@ public class Member {
 
 
     @Builder
-    public Member( String userId, String passwd, String userName, String email, String phoneNum, int hartNo){
+    public Member( String userId, String passwd, String userName, String email, String phoneNum, int hartNo,LocalDateTime recentlyLogin){
         this.userId = userId;
         this.passwd = passwd;
         this.userName = userName;
         this.email = email;
         this.phoneNum = phoneNum;
         this.hartNo = hartNo;
+        this.recentlyLogin =recentlyLogin;
     }
 
 }

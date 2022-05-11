@@ -1,6 +1,8 @@
 package com.my.toyprj.member.dto;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,5 +16,5 @@ public class MemberDTO {
     private String email;
     private String phoneNum;
     private int hartNo;
-
+    private LocalDateTime recentlyLogin;
 }

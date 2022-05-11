@@ -7,6 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpRequest;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,6 +27,7 @@ public class MemberController {
 
     @PostMapping("/user")
     public String User(MemberDTO memberDTO){
+        memberDTO.setRecentlyLogin(LocalDateTime.now());
         memberService.add(memberDTO);
 
         return "redirect:member/join";

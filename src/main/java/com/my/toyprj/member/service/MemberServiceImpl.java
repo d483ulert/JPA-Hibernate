@@ -26,6 +26,7 @@ public class MemberServiceImpl implements MemberService{
                 .email(memberDTO.getEmail())
                 .passwd(pwd)
                 .phoneNum(memberDTO.getPhoneNum())
+                .recentlyLogin(memberDTO.getRecentlyLogin())
                 .build();
         memberRepository.save(member);
 

@@ -15,9 +15,9 @@ import java.util.List;
 public class Member {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY	)
     @Column
-    int userNo;
+    Long userNo;
 
     @Column
     String userId;

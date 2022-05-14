@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -32,8 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .successHandler(authenticationSuccessHandler())
             .usernameParameter("userId")
             .passwordParameter("passwd")
-            .loginProcessingUrl("/login/ing")
-            .defaultSuccessUrl("/login/ok")
+            .loginProcessingUrl("/login/in")
+            .defaultSuccessUrl("/")
             .failureUrl("/login/fail")
             .and()
             .logout()
@@ -60,6 +61,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .withUser("jsMember")
             .password("1q2w3e4r@@")
             .roles("MEMBER");
+
     }
 
     @Bean
@@ -71,5 +73,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
     }
+
+    public UserDetailsService createUserDetailsService(){
+        return  new CustomUserDetailService();
+    }
+
 }
 

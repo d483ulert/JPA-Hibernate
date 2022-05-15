@@ -30,9 +30,8 @@ public class MemberController {
         memberDTO.setRecentlyLogin(LocalDateTime.now());
         memberService.add(memberDTO);
 
-        return "redirect:member/join";
+        return "redirect:/main";
     }
-
 
     @PostMapping("/pwdValidation")
     public @ResponseBody Map pwd(@RequestParam Map<String,String> map){

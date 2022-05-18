@@ -18,13 +18,15 @@ public class MemberServiceImpl implements MemberService{
     @Override
     @Transactional
     public void add(MemberDTO memberDTO) {
-        String pwd = passwordEncoder.encode(memberDTO.getPasswd());
+        String rawPassword = memberDTO.getPasswd();
+        String encPassword = passwordEncoder.encode(rawPassword);
+
         Member member= new Member();
         member = member.builder()
                 .userId(memberDTO.getUserId())
                 .userName(memberDTO.getUserName())
                 .email(memberDTO.getEmail())
-                .passwd(pwd)
+                .passwd(encPassword)
                 .phoneNum(memberDTO.getPhoneNum())
                 .recentlyLogin(memberDTO.getRecentlyLogin())
                 .build();

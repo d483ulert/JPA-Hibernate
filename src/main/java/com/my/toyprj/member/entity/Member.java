@@ -38,6 +38,9 @@ public class Member {
     int hartNo;
 
     @Column
+    String userRole;
+
+    @Column
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime recentlyLogin;
 
@@ -45,16 +48,15 @@ public class Member {
     @JoinColumn(name="userNo")
     private List <MemberAuth> authList;
 
-
-
     @Builder
-    public Member( String userId, String passwd, String userName, String email, String phoneNum, int hartNo,LocalDateTime recentlyLogin){
+    public Member( String userId, String passwd, String userName, String email, String phoneNum,String userRole, int hartNo,LocalDateTime recentlyLogin){
         this.userId = userId;
         this.passwd = passwd;
         this.userName = userName;
         this.email = email;
         this.phoneNum = phoneNum;
         this.hartNo = hartNo;
+        this.userRole=userRole;
         this.recentlyLogin =recentlyLogin;
     }
 

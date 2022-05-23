@@ -16,5 +16,6 @@ public class MemberDTO {
     private String email;
     private String phoneNum;
     private int hartNo;
+    private String userRole;
     private LocalDateTime recentlyLogin;
 }

@@ -1,29 +1,57 @@
 package com.my.toyprj.common.config;
 
 import com.my.toyprj.member.entity.Member;
+import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.stream.Collectors;
 
-public class CustomUser extends User {
+@AllArgsConstructor
+public class CustomUser implements UserDetails {
 
-    private static final long serialVersionUID=1L;
+    private final Member member;
 
-    private Member member;
-
-    public CustomUser(String userId, String passwd, Collection<? extends GrantedAuthority> authorities){
-        super(userId,passwd,authorities);
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        Collection<GrantedAuthority> collection = new ArrayList<>();
+        collection.add(new GrantedAuthority() {
+            @Override
+            public String getAuthority() {
+                return member.getUserRole();
+            }
+        });
+        return collection;
     }
 
-    public CustomUser(Member member){
-        super(member.getUserId(),member.getPasswd(), member.getAuthList().stream().map(auth->new SimpleGrantedAuthority(auth.getAuth())).collect(Collectors.toList()));
-        this.member=member;
+    @Override
+    public String getPassword() {
+        return member.getPasswd();
     }
 
-    public Member getMember(){
-        return member;
+    @Override
+    public String getUsername() {
+        return member.getUserName();
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
     }
 }

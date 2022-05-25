@@ -25,8 +25,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception{
         httpSecurity.authorizeHttpRequests()
+            .antMatchers("/user/**").authenticated()
             .antMatchers("/admin/**").hasRole("ADMIN")
-            .antMatchers("/user/**").permitAll()
             .and()
             .formLogin()
             .loginPage("/login/index")
@@ -46,7 +46,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         httpSecurity.exceptionHandling()
             .accessDeniedPage("/disallow");
-
 
     }
 

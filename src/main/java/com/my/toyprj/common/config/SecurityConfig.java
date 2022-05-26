@@ -1,4 +1,5 @@
 package com.my.toyprj.common.config;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -15,7 +16,10 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final UsernamePasswordAuthenticationFilter jsonUsernamePasswordAuthenticationFilter;
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception{
@@ -24,7 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.authorizeHttpRequests()
+            httpSecurity.authorizeHttpRequests()
             .antMatchers("/user/**").authenticated()
             .antMatchers("/admin/**").hasRole("ADMIN")
             .and()
@@ -40,7 +44,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .logout()
             .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
             .logoutSuccessUrl("/login/logout")
-            .invalidateHttpSession(true);
+            .invalidateHttpSession(true)
+            .disable()
+            .addFilterBefore(jsonUsernamePasswordAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         httpSecurity.csrf().disable();
 

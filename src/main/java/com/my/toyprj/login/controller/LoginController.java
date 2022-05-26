@@ -28,6 +28,11 @@ public class LoginController {
         return "common/main";
     }
 
+    @GetMapping("/fail")
+    public @ResponseBody  String LoginFail(){
+        return "로그인 실패하였습니다";
+    }
+
     @GetMapping("/logout")
     public @ResponseBody String logout(){
         return "로그아웃 되었습니다";

@@ -2,6 +2,7 @@
   <configuration default="false" name="ToyprjApplication" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="com.my.toyprj.ToyprjApplication" />
     <module name="toyprj.main" />
+    <option name="VM_PARAMETERS" value="-Djava.security.egd=file:/dev/./urandom" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="com.my.toyprj.*" />
@@ -9,7 +10,7 @@
       </pattern>
     </extension>
     <method v="2">
-      <option name="Make" enabled="true" />
+      <option name="MakeProject" enabled="true" />
     </method>
   </configuration>
 </component>

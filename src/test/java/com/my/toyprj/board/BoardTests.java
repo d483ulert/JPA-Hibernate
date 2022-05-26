@@ -1,3 +1,4 @@
+/*
 package com.my.toyprj.board;
 import com.my.toyprj.board.entity.Board;
 import com.my.toyprj.board.repository.BoardRepository;
@@ -50,3 +51,4 @@ public class BoardTests {
         board.update("제목수정","본문수정");
     }
 }
+*/

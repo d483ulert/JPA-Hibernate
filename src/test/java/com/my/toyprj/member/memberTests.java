@@ -1,3 +1,4 @@
+/*
 package com.my.toyprj.member;
 import com.my.toyprj.member.repository.MemberRepository;
 import org.junit.jupiter.api.Test;
@@ -19,3 +20,4 @@ public class memberTests {
     }
 
 }
+*/

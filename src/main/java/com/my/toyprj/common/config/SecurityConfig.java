@@ -90,14 +90,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return  new CustomUserDetailService();
     }
 
-    @Bean
-    public AuthenticationFailureHandler authenticationFailureHandler(){
-        return new AuthenticationFailureHandler() {
-            @Override
-            public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-
-            }
-        };
-    }
 }
 

@@ -30,7 +30,8 @@ public class LoginController {
 
     @GetMapping("/fail")
     public @ResponseBody  String LoginFail(){
-        return "로그인 실패하였습니다";
+        System.out.println("실패");
+        return "login/fail";
     }
 
     @GetMapping("/logout")

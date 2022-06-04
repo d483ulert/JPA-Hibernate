@@ -26,7 +26,6 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UsernamePasswordAuthenticationFilter jsonUsernamePasswordAuthenticationFilter;
 
     @Override
     public void configure(WebSecurity webSecurity) throws Exception{
@@ -51,9 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .logout()
             .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
             .logoutSuccessUrl("/login/logout")
-            .invalidateHttpSession(true)
-            .disable()
-            .addFilterBefore(jsonUsernamePasswordAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+            .invalidateHttpSession(true);
+
 
         httpSecurity.csrf().disable();
 
@@ -84,10 +82,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
-    }
-
-    public UserDetailsService createUserDetailsService(){
-        return  new CustomUserDetailService();
     }
 
 }

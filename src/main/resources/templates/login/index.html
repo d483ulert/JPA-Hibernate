@@ -52,6 +52,7 @@ $(document).ready(function(){
         };
         $.ajax({
             url:"/login/in",
+            contentType:'application/json',
             type:"POST",
             data:param,
             success:function(){

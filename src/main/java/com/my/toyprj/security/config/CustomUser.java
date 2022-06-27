@@ -1,4 +1,4 @@
-package com.my.toyprj.common.config;
+package com.my.toyprj.security.config;
 
 import com.my.toyprj.member.entity.Member;
 import lombok.AllArgsConstructor;

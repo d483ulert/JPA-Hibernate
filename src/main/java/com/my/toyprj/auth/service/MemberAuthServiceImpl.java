@@ -5,15 +5,17 @@ import com.my.toyprj.auth.entity.MemberAuth;
 import com.my.toyprj.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 @RequiredArgsConstructor
-@Service("memberAuthServiceImpl")
-public class MemberAuthServiceImpl implements MemberAuthService {
+@Service
+public class MemberAuthServiceImpl {
 
     private final MemberRepository memberRepository;
-    @Override
+
+    @Transactional
     public void AuthAdd(MemberAuthDTO memberAuthDTO) {
         MemberAuth memberAuth = new MemberAuth();
-
         memberAuth.builder()
                 .auth("A")
                 .build();

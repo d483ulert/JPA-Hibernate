@@ -29,7 +29,7 @@ public class LoginController {
     }
 
     @GetMapping("/fail")
-    public @ResponseBody  String LoginFail(){
+    public @ResponseBody String LoginFail(){
         System.out.println("실패");
         return "login/fail";
     }

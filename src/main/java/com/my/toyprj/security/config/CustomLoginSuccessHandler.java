@@ -1,4 +1,4 @@
-package com.my.toyprj.common.config;
+package com.my.toyprj.security.config;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
@@ -16,6 +16,7 @@ public class CustomLoginSuccessHandler extends SavedRequestAwareAuthenticationSu
     @Override
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse response, Authentication authentication) throws ServletException, IOException {
         User user = (User) authentication.getPrincipal();
+        System.out.println(user);
         logger.info("userId"+user.getUsername());
 
         super.onAuthenticationSuccess(httpServletRequest,response,authentication);

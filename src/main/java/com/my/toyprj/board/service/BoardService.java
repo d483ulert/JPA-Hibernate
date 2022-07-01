@@ -66,5 +66,9 @@ public class BoardService  {
         Board board = boardRepository.getById(num);
         board.updateHart(board.getHart());
     }
+    @Transactional
+    public void modifyTitle(int num) {
+        Board board = boardRepository.getById(num);
+    }
 
 }

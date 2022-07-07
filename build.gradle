@@ -31,6 +31,7 @@ dependencies {
 	implementation 'org.springframework.security:spring-security-test'
 	implementation 'org.springframework.boot:spring-boot-devtools'
 	implementation 'com.google.code.findbugs:jsr305:3.0.2'
+	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
 	compileOnly 'com.navercorp.lucy:lucy-xss-servlet:2.0.0'
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'mysql:mysql-connector-java'

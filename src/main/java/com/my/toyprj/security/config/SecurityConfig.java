@@ -18,39 +18,36 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
-    @Override
-    public void configure(WebSecurity webSecurity) throws Exception{
-
-    }
-
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception{
-            httpSecurity.authorizeHttpRequests()
-            .antMatchers("/user/**").authenticated()
-            .antMatchers("/admin/**").hasRole("ADMIN")
-            .and()
-            .formLogin()
-            .loginPage("/login/index")
-            .successHandler(authenticationSuccessHandler())
-            .usernameParameter("userId")
-            .passwordParameter("passwd")
-            .loginProcessingUrl("/login/in")
-            .defaultSuccessUrl("/main")
-            .failureUrl("/login/fail")
-            .and()
-            .logout()
-            .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-            .logoutSuccessUrl("/login/logout")
-            .invalidateHttpSession(true);
+        httpSecurity.authorizeHttpRequests()
+                .antMatchers("/main").permitAll()
+                .antMatchers("/login/index").permitAll()
+                .anyRequest().authenticated();
 
+/* httpSecurity.authorizeHttpRequests()
+    .antMatchers("/user/**").authenticated()
+    .antMatchers("/admin/**").hasRole("ADMIN")
+    .and()
+    .formLogin()
+    .loginPage("/login/index")
+    .successHandler(authenticationSuccessHandler())
+    .usernameParameter("userId")
+    .passwordParameter("passwd")
+    .loginProcessingUrl("/login/in")
+    .defaultSuccessUrl("/main")
+    .failureUrl("/login/fail")
+    .and()
+    .logout()
+    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+    .logoutSuccessUrl("/login/logout")
+    .invalidateHttpSession(true);
 
-        httpSecurity.csrf().disable();
-
-        httpSecurity.exceptionHandling()
-            .accessDeniedPage("/disallow");
-
+httpSecurity.csrf().disable();
+httpSecurity.exceptionHandling().accessDeniedPage("/disallow");
+*/
     }
+
 
     @Override
     protected void configure(AuthenticationManagerBuilder amb)  throws Exception{

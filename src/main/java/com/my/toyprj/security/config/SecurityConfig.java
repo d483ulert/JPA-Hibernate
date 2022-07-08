@@ -1,8 +1,12 @@
 package com.my.toyprj.security.config;
+import com.my.toyprj.jwt.JwtAccessDeniedHandler;
+import com.my.toyprj.jwt.JwtAuthenticationEntryPoint;
+import com.my.toyprj.jwt.TokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -11,12 +15,19 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.filter.CorsFilter;
 
 
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final TokenProvider tokenProvider;
+    private final CorsFilter corsFilter;
+    private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+    private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception{
@@ -25,27 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/login/index").permitAll()
                 .anyRequest().authenticated();
 
-/* httpSecurity.authorizeHttpRequests()
-    .antMatchers("/user/**").authenticated()
-    .antMatchers("/admin/**").hasRole("ADMIN")
-    .and()
-    .formLogin()
-    .loginPage("/login/index")
-    .successHandler(authenticationSuccessHandler())
-    .usernameParameter("userId")
-    .passwordParameter("passwd")
-    .loginProcessingUrl("/login/in")
-    .defaultSuccessUrl("/main")
-    .failureUrl("/login/fail")
-    .and()
-    .logout()
-    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-    .logoutSuccessUrl("/login/logout")
-    .invalidateHttpSession(true);
 
-httpSecurity.csrf().disable();
-httpSecurity.exceptionHandling().accessDeniedPage("/disallow");
-*/
     }
 
 

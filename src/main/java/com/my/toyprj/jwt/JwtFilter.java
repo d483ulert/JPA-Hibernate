@@ -1,3 +1,4 @@
+
 package com.my.toyprj.jwt;
 
 import org.codehaus.groovy.util.StringUtil;
@@ -51,3 +52,4 @@ public class JwtFilter extends GenericFilterBean {
         return null;
     }
 }
+

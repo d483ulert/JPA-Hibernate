@@ -1,3 +1,4 @@
+
 package com.my.toyprj.security.config;
 import com.my.toyprj.jwt.JwtAccessDeniedHandler;
 import com.my.toyprj.jwt.JwtAuthenticationEntryPoint;
@@ -100,4 +101,3 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
 }
-

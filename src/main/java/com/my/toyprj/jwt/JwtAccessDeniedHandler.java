@@ -1,3 +1,4 @@
+
 package com.my.toyprj.jwt;
 
 import org.springframework.security.access.AccessDeniedException;
@@ -17,3 +18,4 @@ public class JwtAccessDeniedHandler implements AccessDeniedHandler {
         response.sendError(HttpServletResponse.SC_FORBIDDEN);
     }
 }
+

@@ -3,10 +3,7 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@ToString
+@Data
 public class MemberDTO {
 
     private String userNo;

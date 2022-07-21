@@ -44,10 +44,4 @@ public class memberTests {
                 .andExpect(status().isUnauthorized());
     }
 
-    @Test
-    public void findUserId(){
-       Member member = memberRepository.findByUserId("제니");
-        System.out.println(member.getUserId());
-    }
-
 }

@@ -7,6 +7,7 @@ import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -17,39 +18,38 @@ public class Member {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY	)
     @Column
-    Long userNo;
+    private Long userNo;
 
     @Column
-    String userId;
+    private String userId;
 
     @Column
-    String passwd;
+    private String passwd;
 
     @Column
-    String userName;
+    private String userName;
 
     @Column
-    String email;
+    private String email;
 
     @Column
-    String phoneNum;
+    private String phoneNum;
 
     @Column
-    int hartNo;
+    private int hartNo;
 
     @Column
-    String userRole;
+    private String userRole;
+
+    @Column
+    private int isActivated;
 
     @Column
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime recentlyLogin;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name="userNo")
-    private List <MemberAuth> authList;
-
     @Builder
-    public Member( String userId, String passwd, String userName, String email, String phoneNum,String userRole, int hartNo,LocalDateTime recentlyLogin){
+    public Member( String userId, String passwd, String userName, String email, String phoneNum,String userRole,int isActivated, int hartNo,LocalDateTime recentlyLogin){
         this.userId = userId;
         this.passwd = passwd;
         this.userName = userName;
@@ -57,7 +57,13 @@ public class Member {
         this.phoneNum = phoneNum;
         this.hartNo = hartNo;
         this.userRole=userRole;
+        this.isActivated=isActivated;
         this.recentlyLogin =recentlyLogin;
     }
+
+    @ManyToMany
+    @JoinTable(name="MemberAuth",joinColumns = {@JoinColumn(name="userNo", referencedColumnName = "userNo")},
+    inverseJoinColumns = {@JoinColumn(name="userNo", referencedColumnName = "userNo")})
+    private Set <MemberAuth> authorities;
 
 }

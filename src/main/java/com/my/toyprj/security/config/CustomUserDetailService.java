@@ -1,5 +1,7 @@
 package com.my.toyprj.security.config;
 
+import com.my.toyprj.auth.entity.MemberAuth;
+import com.my.toyprj.member.entity.Member;
 import com.my.toyprj.member.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,15 +32,15 @@ public class CustomUserDetailService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException(userId + "null"));
     }
 
-    private org.springframework.security.core.userdetails.User createMember(String username, Object member) {
-        if (!member.isActivated()) {
+    private org.springframework.security.core.userdetails.User createMember(String username, Member member) {
+        if (member.getIsActivated() == 0) {
             throw new RuntimeException(username + " -> 활성화되어 있지 않습니다.");
         }
         List<GrantedAuthority> grantedAuthorities = member.getAuthorities().stream()
-                .map(authority -> new SimpleGrantedAuthority(authority.getAuthorityName()))
+                .map(authority -> new SimpleGrantedAuthority(authority.getAuth()))
                 .collect(Collectors.toList());
-        return new org.springframework.security.core.userdetails.User(member.getUsername(),
-                member.getPassword(),
+        return new org.springframework.security.core.userdetails.User(member.getUserId(),
+                member.getPasswd(),
                 grantedAuthorities);
     }
 }

@@ -27,7 +27,8 @@ public class MemberService {
                 .email(memberDTO.getEmail())
                 .passwd(encPassword)
                 .phoneNum(memberDTO.getPhoneNum())
-                .userRole("User")
+                .userRole("")
+                .isActivated(1)
                 .recentlyLogin(memberDTO.getRecentlyLogin())
                 .build();
         memberRepository.save(member);

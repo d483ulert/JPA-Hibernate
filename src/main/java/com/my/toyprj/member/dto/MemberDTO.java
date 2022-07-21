@@ -15,4 +15,5 @@ public class MemberDTO {
     private int hartNo;
     private String userRole;
     private LocalDateTime recentlyLogin;
+    private int isActivated;
 }

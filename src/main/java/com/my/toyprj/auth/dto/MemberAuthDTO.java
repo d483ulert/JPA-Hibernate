@@ -26,7 +26,7 @@ public class MemberAuthDTO {
         this.auth=auth;
     }
 
-    public MemberAuth toEntity(int userNo, String auth){
+    public MemberAuth toEntity(Long userNo, String auth){
         return new MemberAuth(userNo,auth);
     }
 }

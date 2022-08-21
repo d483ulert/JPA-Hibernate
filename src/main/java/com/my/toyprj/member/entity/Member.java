@@ -62,8 +62,9 @@ public class Member {
     }
 
     @ManyToMany
-    @JoinTable(name="MemberAuth",joinColumns = {@JoinColumn(name="userNo", referencedColumnName = "userNo")},
-    inverseJoinColumns = {@JoinColumn(name="userNo", referencedColumnName = "userNo")})
+    @JoinTable(name="MemberAuth",
+            joinColumns = {@JoinColumn(name = "userNo", referencedColumnName = "userNo")},
+            inverseJoinColumns = {@JoinColumn(name = "userNo", referencedColumnName = "userNo")})
     private Set <MemberAuth> authorities;
 
 }

@@ -5,16 +5,13 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @NoArgsConstructor
-@EqualsAndHashCode(of="userNo")
+@Table(name="MemberAuth")
 public class MemberAuth {
 
     @Column
@@ -23,7 +20,7 @@ public class MemberAuth {
     private Long userAuthNo;
 
     @Column
-    private int userNo;
+    private Long userNo;
 
     @Column
     private String auth;
@@ -35,7 +32,7 @@ public class MemberAuth {
     private LocalDateTime updateTime;
 
     @Builder
-    public MemberAuth(int userNo, String auth){
+    public MemberAuth(Long userNo, String auth){
         this.userNo =userNo;
         this.auth=auth;
     }

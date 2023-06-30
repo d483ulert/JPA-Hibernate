@@ -3,10 +3,8 @@ import lombok.*;
 import java.time.LocalDateTime;
 
 
-@Getter
 @NoArgsConstructor
-@ToString
-@Setter
+@Data
 public class BoardDTO {
 
     private int num;
